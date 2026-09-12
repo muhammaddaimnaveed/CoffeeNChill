@@ -7,7 +7,7 @@
 - Nathan Beaumont
 - Coherence Mlambo
 
-## Member 1 - Muhammad Naveed
+## Member 1 - Muhammad Naveed 
 
 ## Responsiblity:
 
@@ -118,9 +118,55 @@ The menu item is identified using its category and unique menu item ID.
 - Updated CreateMenuItem and GetAllMenuItems
 - Updated GetMenuItemsByCategory, UpdateMenuItem, and DeleteMenuItem
 
+## Member 3 - Nathan Beaumont
+
+## Responsiblity:
+
+I was responsible for implementing the staff document management functionality 
+for the CoffeeNChill application using Azure Blob Storage.
+
+## Contributions:
+
+- Created the BlobStorageService
+- Created UploadStaffDocument function
+- Created ListStaffDocuments function
+- Created DownloadStaffDocument function
+- Updated UploadStaffDocument, ListStaffDocuments, and DownloadStaffDocument 
+- Configured the staff-docs Blob Storage container
+- Added PDF file type validation and document error handling
+
+## Features Implemented:
+
+### Azure Blob Storage Service
+
+The BlobStorageService handles communication between the CoffeeNChill Azure Functions 
+and Azure Blob Storage. The BlobStorageService provides functionality for Uploading 
+staff documents, retrieving a list of stored documents. downloading stored documents,
+and checking whether a requested document exists. For local development, the service 
+connects to the Azurite storage emulator and uses the 'staff-docs' Blob container.
+
+### Upload Staff Document
+
+The UploadStaffDocument function uploads a staff document using 'multipart/form-data'
+and is stored inside the 'staff-docs' Blob Storage container.
 
 
+### List Staff Documents
 
+This ListStaffDocuments function retrieves the stored documents from the 'staff-docs' 
+Blob Storage container.
 
+### Download Staff Document
+
+The DownloadStaffDocument function downloads the staff documents from the 'staff-docs'
+Blob Storage container.
+
+### Commits:
+
+- Created BlobStorageService for Staff Documents
+- Created UploadStaffDocument to Upload All The Staff Documents
+- Created ListStaffDocuments to List The Stored Staff Documents
+- Created DownloadStaffDocument to Download the Staff Documents
+- Updated UploadStaffDocument, ListStaffDocuments, and DownloadStaffDocument
 
 
