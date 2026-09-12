@@ -7,12 +7,12 @@ using CoffeeNChill.Services;
 
 namespace CoffeeNChill.Functions
 {
-    public class UploadStaffDocument
+    public class UploadStaffDocument             
     {
         [Function("UploadStaffDocument")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Function,
+                AuthorizationLevel.Anonymous,
                 "post",
                 Route = "documents/upload")]
             HttpRequestData req)

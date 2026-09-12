@@ -10,7 +10,7 @@ namespace CoffeeNChill.Functions
         [Function("DownloadStaffDocument")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Function,
+                AuthorizationLevel.Anonymous,
                 "get",
                 Route = "documents/download/{fileName}")]
             HttpRequestData req,
