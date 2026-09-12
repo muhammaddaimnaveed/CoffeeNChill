@@ -8,12 +8,12 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace CoffeeNChill.Functions
 {
-    public class CreateMenuItem
+    public class CreateMenuItem       
     {
         [Function("CreateMenuItem")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Function,
+                AuthorizationLevel.Anonymous,
                 "post",
                 Route = "menu")]
             HttpRequestData req)
