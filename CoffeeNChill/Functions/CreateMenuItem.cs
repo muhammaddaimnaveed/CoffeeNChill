@@ -13,7 +13,7 @@ namespace CoffeeNChill.Functions
         [Function("CreateMenuItem")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Anonymous,
+                AuthorizationLevel.Function,
                 "post",
                 Route = "menu")]
             HttpRequestData req)
