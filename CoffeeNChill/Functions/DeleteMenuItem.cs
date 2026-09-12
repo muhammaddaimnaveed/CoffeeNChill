@@ -5,12 +5,12 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace CoffeeNChill.Functions
 {
-    public class DeleteMenuItem
+    public class DeleteMenuItem              
     {
         [Function("DeleteMenuItem")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Function,
+                AuthorizationLevel.Anonymous,
                 "delete",
                 Route = "menu/{category}/{id}")]
             HttpRequestData req,

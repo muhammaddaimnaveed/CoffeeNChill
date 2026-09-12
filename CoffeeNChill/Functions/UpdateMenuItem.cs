@@ -18,7 +18,7 @@ namespace CoffeeNChill.Functions
         [Function("UpdateMenuItem")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Function,
+                AuthorizationLevel.Anonymous,
                 "put",
                 Route = "menu/{category}/{id}")]
             HttpRequestData req,

@@ -5,12 +5,12 @@ using Microsoft.Azure.Functions.Worker.Http;
 
 namespace CoffeeNChill.Functions
 {
-    public class GetMenuItemsByCategory
+    public class GetMenuItemsByCategory   
     {
         [Function("GetMenuItemsByCategory")]
         public async Task<HttpResponseData> Run(
             [HttpTrigger(
-                AuthorizationLevel.Function,
+                AuthorizationLevel.Anonymous,
                 "get",
                 Route = "menu/category/{category}")]
             HttpRequestData req,
