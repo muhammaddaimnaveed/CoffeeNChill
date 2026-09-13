@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.AspNetCore.WebUtilities;
@@ -7,7 +8,7 @@ using CoffeeNChill.Services;
 
 namespace CoffeeNChill.Functions
 {
-    public class UploadStaffDocument             
+    public class UploadStaffDocument
     {
         [Function("UploadStaffDocument")]
         public async Task<HttpResponseData> Run(
@@ -19,38 +20,62 @@ namespace CoffeeNChill.Functions
         {
             try
             {
-                if (!req.Headers.TryGetValues("Content-Type", out var values))
+
+                var bodyStream = new MemoryStream();
+                await req.Body.CopyToAsync(bodyStream);
+                bodyStream.Position = 0;
+
+                string? boundary = null;
+
+                if (req.Headers.TryGetValues(
+                    "Content-Type",
+                    out var contentTypeValues))
                 {
-                    var badResponse =
-                        req.CreateResponse(HttpStatusCode.BadRequest);
+                    string contentType = contentTypeValues.First();
 
-                    await badResponse.WriteStringAsync(
-                        "Content-Type is required.");
+                    if (!contentType.StartsWith(
+                        "multipart/form-data",
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        var badResponse =
+                            req.CreateResponse(HttpStatusCode.BadRequest);
 
-                    return badResponse;
+                        await badResponse.WriteStringAsync(
+                            "Request must use multipart/form-data.");
+
+                        return badResponse;
+                    }
+
+                    var mediaType =
+                        MediaTypeHeaderValue.Parse(contentType);
+
+                    boundary =
+                        HeaderUtilities.RemoveQuotes(
+                            mediaType.Boundary).Value;
                 }
 
-                string contentType = values.First();
-
-                if (!contentType.StartsWith(
-                    "multipart/form-data",
-                    StringComparison.OrdinalIgnoreCase))
+                if (string.IsNullOrWhiteSpace(boundary))
                 {
-                    var badResponse =
-                        req.CreateResponse(HttpStatusCode.BadRequest);
+                    bodyStream.Position = 0;
 
-                    await badResponse.WriteStringAsync(
-                        "Request must use multipart/form-data.");
+                    using var reader = new StreamReader(
+                        bodyStream,
+                        Encoding.UTF8,
+                        detectEncodingFromByteOrderMarks: true,
+                        bufferSize: 1024,
+                        leaveOpen: true);
 
-                    return badResponse;
+                    string? firstLine =
+                        await reader.ReadLineAsync();
+
+                    if (!string.IsNullOrWhiteSpace(firstLine) &&
+                        firstLine.StartsWith("--"))
+                    {
+                        boundary = firstLine.Substring(2).Trim();
+                    }
+
+                    bodyStream.Position = 0;
                 }
-
-                var mediaType =
-                    MediaTypeHeaderValue.Parse(contentType);
-
-                string? boundary =
-                    HeaderUtilities.RemoveQuotes(
-                        mediaType.Boundary).Value;
 
                 if (string.IsNullOrWhiteSpace(boundary))
                 {
@@ -63,10 +88,11 @@ namespace CoffeeNChill.Functions
                     return badResponse;
                 }
 
-                var reader =
-                    new MultipartReader(boundary, req.Body);
+                var multipartReader =
+                    new MultipartReader(boundary, bodyStream);
 
-                var section = await reader.ReadNextSectionAsync();
+                var section =
+                    await multipartReader.ReadNextSectionAsync();
 
                 while (section != null)
                 {
@@ -89,13 +115,8 @@ namespace CoffeeNChill.Functions
                                         : contentDisposition.FileName).Value
                                 ?? "document.pdf";
 
-                            string fileContentType =
-                                section.ContentType
-                                ?? "application/octet-stream";
-
-                            // Only PDF staff documents are accepted.
-                            if (!fileContentType.Equals(
-                                "application/pdf",
+                            if (!fileName.EndsWith(
+                                ".pdf",
                                 StringComparison.OrdinalIgnoreCase))
                             {
                                 var unsupportedResponse =
@@ -108,12 +129,38 @@ namespace CoffeeNChill.Functions
                                 return unsupportedResponse;
                             }
 
+                            string? fileContentType =
+                                section.ContentType;
+
+                            if (!string.IsNullOrWhiteSpace(fileContentType) &&
+                                !fileContentType.Equals(
+                                    "application/pdf",
+                                    StringComparison.OrdinalIgnoreCase))
+                            {
+                                var unsupportedResponse =
+                                    req.CreateResponse(
+                                        HttpStatusCode.BadRequest);
+
+                                await unsupportedResponse.WriteStringAsync(
+                                    "Only PDF documents are allowed.");
+
+                                return unsupportedResponse;
+                            }
+
+                            fileContentType = "application/pdf";
+
                             var blobStorageService =
-                                new BlobStorageService();
+                            new BlobStorageService();
+
+                            using var fileStream = new MemoryStream();
+
+                            await section.Body.CopyToAsync(fileStream);
+
+                            fileStream.Position = 0;
 
                             await blobStorageService.UploadDocumentAsync(
                                 fileName,
-                                section.Body,
+                                fileStream,
                                 fileContentType);
 
                             var response =
@@ -126,7 +173,8 @@ namespace CoffeeNChill.Functions
                         }
                     }
 
-                    section = await reader.ReadNextSectionAsync();
+                    section =
+                        await multipartReader.ReadNextSectionAsync();
                 }
 
                 var noFileResponse =
@@ -151,5 +199,3 @@ namespace CoffeeNChill.Functions
         }
     }
 }
-
-
