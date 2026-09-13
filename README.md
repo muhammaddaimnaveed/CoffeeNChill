@@ -7,6 +7,16 @@
 - Nathan Beaumont
 - Coherence Mlambo
 
+## Docker Hub Images
+
+The Docker images used for the CoffeeNChill application have been published to Docker Hub with the required `v1.0` tags.
+
+- CoffeeNChill Functions: https://hub.docker.com/repository/docker/muhammadnaveed1101/coffeenchill-functions/general 
+- Image: `muhammadnaveed1101/coffeenchill-functions:v1.0`
+
+- CoffeeNChill Azurite: https://hub.docker.com/repository/docker/muhammadnaveed1101/coffeenchill-azurite/general 
+- Image: `muhammadnaveed1101/coffeenchill-azurite:v1.0`
+
 ## Architecture Overview
 
 CoffeeNChill is an Azure Functions application that uses HTTP-triggered functions to provide API functionality for managing menu items and staff documents.
@@ -369,5 +379,7 @@ coffeenchill-functions:v1.0 ```
    - Created Dockerfile for Azure Functions
    - Created .dockerignore
    - Created Postman Collection with Automated API Tests
+   - Updated UploadStaffDocument
    - Coherence Mlambo README.md
+   - Docker Hub Images
    - YouTube Link
