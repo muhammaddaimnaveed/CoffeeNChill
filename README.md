@@ -382,9 +382,52 @@ coffeenchill-functions:v1.0 ```
    - Updated UploadStaffDocument
    - Coherence Mlambo README.md
    - Docker Hub Images
+   - Postman Testing Images
    - YouTube Link
+   - References
+
+   ## Postman Testing Images
+
+   1. CreateMenuItem
+
+   <img width="1915" height="894" alt="Screenshot 2026-09-14 161920" src="https://github.com/user-attachments/assets/2dba1dc2-7031-4a79-a90d-35212d05ec1d" />
+
+   2. GetAllMenuItems
+  
+   <img width="1919" height="966" alt="Screenshot 2026-09-14 162033" src="https://github.com/user-attachments/assets/f1e34c0a-f9e9-4a03-91dc-b0c9bf58323c" />
+
+   3. GetMenuItemsByCategory
+  
+   <img width="1906" height="902" alt="Screenshot 2026-09-14 162229" src="https://github.com/user-attachments/assets/cad32fd1-536d-4411-b8d2-cd8bdc7e5f30" />
+
+   4. UpdateMenuItem
+
+   <img width="1917" height="884" alt="Screenshot 2026-09-14 162251" src="https://github.com/user-attachments/assets/4c8dd335-e48f-478a-8194-94594cae2f09" />
+
+   5. DeleteMenuItem
+  
+   <img width="1919" height="891" alt="Screenshot 2026-09-14 162303" src="https://github.com/user-attachments/assets/1e8c97d6-cc44-4a9f-a8bb-f4ee558b6da8" />
+
+   6. UploadStaffDocument
+  
+   <img width="1905" height="891" alt="Screenshot 2026-09-14 162330" src="https://github.com/user-attachments/assets/fb008092-7ebe-4e08-a605-81325d1399ba" />
+
+   7. ListStaffDocuments
+
+   <img width="1919" height="878" alt="Screenshot 2026-09-14 162403" src="https://github.com/user-attachments/assets/ea393ec1-1743-4c01-9d08-be064cc83203" />
+
+   8. DownloadStaffDocument
+
+   <img width="1917" height="884" alt="Screenshot 2026-09-14 162434" src="https://github.com/user-attachments/assets/d89a33c9-1560-450f-a363-d5abe974c4f1" />
+
+   9. CoffeeNChill API Collection Testing
+
+   <img width="1919" height="859" alt="Screenshot 2026-09-14 163037" src="https://github.com/user-attachments/assets/37e9437c-5367-4995-99c9-c96ae832ba49" />
+
+   <img width="1919" height="887" alt="Screenshot 2026-09-14 163053" src="https://github.com/user-attachments/assets/d10caffc-7cbd-4791-9610-6ec457fbbc0d" />
 
    ## Reference List
+   
    ## References and Learning Resources
 
 ### Microsoft Azure Functions and .NET
