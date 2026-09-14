@@ -383,3 +383,71 @@ coffeenchill-functions:v1.0 ```
    - Coherence Mlambo README.md
    - Docker Hub Images
    - YouTube Link
+
+   ## Reference List
+   ## References and Learning Resources
+
+### Microsoft Azure Functions and .NET
+
+- [Run C# Azure Functions using the isolated worker model](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide )
+- [Azure Functions HTTP trigger](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook )
+- [Create your first Azure Functions project using Visual Studio](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio )
+- [.NET documentation](https://learn.microsoft.com/en-us/dotnet/ )
+- [Azure Functions .NET Worker GitHub samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples )
+
+### Azure Table Storage
+
+- [Introduction to Azure Table Storage](https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview )
+- [Get started with Azure Table Storage using .NET](https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-quickstart )
+- [Azure.Data.Tables .NET API documentation](https://learn.microsoft.com/en-us/dotnet/api/azure.data.tables )
+- [Azure Tables SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables )
+
+### Azure Blob Storage
+
+- [Azure Blob Storage .NET quickstart](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet )
+- [Upload a blob using .NET](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-upload )
+- [Download a blob using .NET](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-download )
+- [Azure.Storage.Blobs .NET API documentation](https://learn.microsoft.com/en-us/dotnet/api/azure.storage.blobs )
+
+### Azurite Storage Emulator
+
+- [Use Azurite for local Azure Storage development](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite )
+- [Install and run the Azurite emulator](https://learn.microsoft.com/en-us/azure/storage/common/storage-install-azurite )
+- [Connect to Azurite using Azure SDKs and tools](https://learn.microsoft.com/en-us/azure/storage/common/storage-connect-azurite )
+- [Azurite GitHub repository](https://github.com/Azure/Azurite )
+- [Azurite Docker image](https://hub.docker.com/r/microsoft/azure-storage-azurite )
+
+### Docker and Containerisation
+
+- [Run .NET applications in Docker containers](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-10.0 )
+- [Docker multi-stage builds](https://docs.docker.com/build/building/multi-stage/ )
+- [Docker build command reference](https://docs.docker.com/reference/cli/docker/build/ )
+- [Docker run command reference](https://docs.docker.com/reference/cli/docker/container/run/ )
+- [Official .NET Docker images](https://hub.docker.com/_/microsoft-dotnet )
+- [Official Azure Functions Docker images](https://hub.docker.com/_/microsoft-azure-functions )
+
+### Postman API Testing
+
+- [Postman API testing documentation](https://learning.postman.com/docs/tests-and-scripts/ )
+- [Write scripts to test API responses in Postman](https://learning.postman.com/docs/tests-and-scripts/write-scripts/test-scripts/ )
+- [Create and manage Postman collections](https://learning.postman.com/docs/collections/ )
+- [Run collections in Postman](https://learning.postman.com/docs/collections/running-collections/intro/ )
+- [Run Postman collections using Newman](https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/ )
+
+### Monitoring and OpenTelemetry
+
+- [Azure Monitor OpenTelemetry overview](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-overview )
+- [Enable OpenTelemetry for .NET applications](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable )
+- [Azure Monitor OpenTelemetry Exporter for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter )
+- [OpenTelemetry .NET documentation](https://opentelemetry.io/docs/languages/net/ )
+
+### YouTube Guides
+
+- [Azure Functions .NET isolated worker tutorial](https://www.youtube.com/watch?v=9HT9NzqYob0 )
+- [How to use .NET Core with Azure Functions](https://www.youtube.com/watch?v=S7kP-vqwRww )
+- [Using Azure Tables with Azure Functions](https://www.youtube.com/watch?v=3L7m0gXbtPY )
+- [Use the Azurite emulator for local Azure Storage development](https://www.youtube.com/watch?v=V6iOFfi8VwY )
+- [How to test Azure Functions using Postman](https://www.youtube.com/watch?v=f2u_21b8GC0 )
+- [How to call an Azure Function App from Postman](https://www.youtube.com/watch?v=yr3Wf9WYzUk )
+- [Deploy .NET applications to Docker containers](https://www.youtube.com/watch?v=tpNQpiwJexM )
+
