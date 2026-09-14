@@ -7,6 +7,10 @@
 - Nathan Beaumont
 - Coherence Mlambo
 
+##   YouTube Link
+
+YouTube Link: https://youtu.be/HqXI1kM-vfo 
+
 ## Docker Hub Images
 
 The Docker images used for the CoffeeNChill application have been published to Docker Hub with the required `v1.0` tags.
@@ -101,6 +105,8 @@ docker run --name coffeenchill-azurite `
 - Created CreateMenuItem to Validate and Create Menu Item
 - Created GetAllMenuItems to Retrieve All The Menu Items
 - Muhammad Naveed README.md
+- Postman Testing Images
+- YouTube Link
 
 ## Member 2 - Luthando Mtshali
 
@@ -382,8 +388,6 @@ coffeenchill-functions:v1.0 ```
    - Updated UploadStaffDocument
    - Coherence Mlambo README.md
    - Docker Hub Images
-   - Postman Testing Images
-   - YouTube Link
    - References
 
    ## Postman Testing Images
